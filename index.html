@@ -9,135 +9,73 @@
 
 <style>
 
-/* GLOBAL */
-
-html{
-scroll-behavior:smooth;
-}
-
 body{
 font-family:Arial;
 margin:0;
-background:#0b0f1a;
-color:white;
+background:#f4f4f4;
 text-align:center;
-transition:0.3s;
-}
-
-/* PARTICLES BACKGROUND */
-
-#particles-js{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-z-index:-1;
 }
 
 /* HEADER */
 
 header{
 background:#111;
+color:white;
 padding:20px;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:20px;
 }
 
-/* DARK MODE SWITCH */
-
-.switch{
-position:relative;
-display:inline-block;
-width:50px;
-height:24px;
+.logo{
+width:60px;
 }
 
-.switch input{
-display:none;
-}
-
-.slider{
-position:absolute;
-cursor:pointer;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:#ccc;
-border-radius:34px;
-}
-
-.slider:before{
-content:"";
-height:18px;
-width:18px;
-left:3px;
-bottom:3px;
-background:white;
-position:absolute;
-border-radius:50%;
-transition:0.4s;
-}
-
-input:checked + .slider{
-background:#00eaff;
-}
-
-input:checked + .slider:before{
-transform:translateX(26px);
-}
-
-/* NAV */
+/* NAVIGATION */
 
 nav{
 display:flex;
 justify-content:center;
-background:#141a2a;
+flex-wrap:wrap;
+background:#333;
 padding:10px;
 position:sticky;
 top:0;
 }
 
 nav a{
-margin:10px;
 color:white;
+margin:10px;
 text-decoration:none;
 font-size:18px;
 }
 
 nav a:hover{
-color:#00eaff;
+color:yellow;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero{
-padding:100px 20px;
-background:linear-gradient(120deg,#1a2980,#26d0ce);
+background:linear-gradient(120deg,#2193b0,#6dd5ed);
+color:white;
+padding:80px 20px;
 }
 
 .hero h2{
-font-size:45px;
+font-size:40px;
 }
 
-/* GLOW BUTTON */
+/* BUTTON */
 
-.glow-btn{
+button{
 padding:12px 25px;
-background:#00eaff;
+background:black;
+color:white;
 border:none;
-border-radius:30px;
 cursor:pointer;
-color:black;
-font-weight:bold;
-transition:0.3s;
+font-size:16px;
 }
 
-.glow-btn:hover{
-box-shadow:0 0 20px #00eaff,0 0 40px #00eaff;
+button:hover{
+background:#444;
 }
 
 /* SERVICES */
@@ -147,84 +85,51 @@ display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:20px;
-padding:40px;
+margin-top:30px;
 }
 
 .card{
-background:#141a2a;
+background:white;
 padding:20px;
 width:220px;
-border-radius:12px;
+border-radius:10px;
 transition:0.3s;
 text-decoration:none;
-color:white;
+color:black;
+}
+
+.card img{
+width:50px;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #00eaff;
+transform:scale(1.05);
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* PORTFOLIO */
 
-.main-img{
-width:80%;
-max-width:600px;
-border-radius:12px;
-margin-bottom:20px;
-box-shadow:0 0 20px #00eaff;
-cursor:pointer;
-}
-
 .gallery{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:15px;
+margin-top:30px;
 }
 
 .gallery img{
-width:120px;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
+width:300px;
+border-radius:10px;
+transition:0.5s;
 }
 
-.gallery img:hover{
-transform:scale(1.1);
-box-shadow:0 0 10px #00eaff;
-}
-
-/* LIGHTBOX */
-
-#lightbox{
-position:fixed;
-display:none;
-justify-content:center;
-align-items:center;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-}
-
-#lightbox img{
-max-width:90%;
-max-height:80%;
-}
-
-/* REVIEWS */
+/* TESTIMONIALS */
 
 .review{
-background:#141a2a;
+background:white;
 margin:20px auto;
 padding:20px;
 width:300px;
 border-radius:10px;
 }
 
-/* CONTACT */
+/* CONTACT FORM */
 
 form{
 display:flex;
@@ -233,46 +138,48 @@ max-width:400px;
 margin:auto;
 }
 
-input,textarea{
-margin:10px;
+input, textarea{
+margin:10px 0;
 padding:10px;
-border:none;
-border-radius:6px;
 }
 
 /* FOOTER */
 
 footer{
-background:#000;
+background:#222;
+color:white;
 padding:20px;
 margin-top:30px;
 }
 
-/* WHATSAPP */
+/* DARK MODE */
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-font-size:22px;
+.dark{
+background:#111;
 color:white;
-text-decoration:none;
 }
 
-/* SCROLL ANIMATION */
+/* RESPONSIVE */
 
-.hidden{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
+@media (max-width:768px){
+
+.hero h2{
+font-size:28px;
 }
 
-.show{
-opacity:1;
-transform:translateY(0);
+.services{
+flex-direction:column;
+align-items:center;
+}
+
+.card{
+width:80%;
+}
+
+nav{
+flex-direction:column;
+}
+
 }
 
 </style>
@@ -281,18 +188,16 @@ transform:translateY(0);
 
 <body>
 
-<div id="particles-js"></div>
-
 <header>
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
 
 <h1>MarketPro Agency</h1>
 
-<label class="switch">
-<input type="checkbox" onchange="toggleMode()">
-<span class="slider"></span>
-</label>
+<button onclick="toggleMode()">Dark Mode</button>
 
 </header>
+
 
 <nav>
 
@@ -304,84 +209,96 @@ transform:translateY(0);
 
 </nav>
 
-<section id="home" class="hero hidden">
+
+<section id="home" class="hero">
 
 <h2>Grow Your Business Online</h2>
 
 <p>We build modern websites and digital marketing solutions.</p>
 
-<button class="glow-btn">Start Now</button>
+<button onclick="showMessage()">Start Now</button>
 
 </section>
 
-<section id="services" class="hidden">
+
+<section id="services">
 
 <h2>Our Services</h2>
 
 <div class="services">
 
 <a href="web-development.html" class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
+
 <h3>Web Development</h3>
-<p>Modern responsive websites</p>
+
+<p>Modern responsive websites for businesses.</p>
+
 </a>
+
 
 <a href="graphic-design.html" class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
+
 <h3>Graphic Design</h3>
-<p>Creative branding & visuals</p>
+
+<p>Creative visual branding and marketing graphics.</p>
+
 </a>
 
+
 <a href="seo-marketing.html" class="card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/1006/1006555.png">
+
 <h3>SEO Marketing</h3>
-<p>Improve search ranking</p>
+
+<p>Improve search ranking and website traffic.</p>
+
 </a>
 
 </div>
 
 </section>
 
-<section id="portfolio" class="hidden">
+
+<section id="portfolio">
 
 <h2>Our Work</h2>
 
-<img id="mainImage"
-src="https://picsum.photos/600/350"
-class="main-img"
-onclick="openLightbox()">
-
 <div class="gallery">
 
-<img src="https://picsum.photos/300/200" onclick="changeImage(this)">
-<img src="https://picsum.photos/301/200" onclick="changeImage(this)">
-<img src="https://picsum.photos/302/200" onclick="changeImage(this)">
-<img src="https://picsum.photos/303/200" onclick="changeImage(this)">
+<img id="workImage" src="https://picsum.photos/300/200">
 
 </div>
 
 </section>
 
-<div id="lightbox" onclick="closeLightbox()">
 
-<img id="lightboxImg">
-
-</div>
-
-<section id="reviews" class="hidden">
+<section id="reviews">
 
 <h2>Client Reviews</h2>
 
 <div class="review">
+
 <p>"Amazing website service!"</p>
 <b>- Client A</b>
+
 </div>
 
 <div class="review">
+
 <p>"Highly recommended marketing team."</p>
 <b>- Client B</b>
+
 </div>
 
 </section>
 
-<section id="contact" class="hidden">
+
+<section id="contact">
 
 <h2>Contact Us</h2>
 
@@ -393,90 +310,64 @@ onclick="openLightbox()">
 
 <textarea placeholder="Your Message"></textarea>
 
-<button class="glow-btn">Send Message</button>
+<button type="submit">Send Message</button>
 
 </form>
 
 </section>
 
+
 <footer>
 
 <p>© 2026 MarketPro Agency</p>
 
+<p>Follow us: Facebook | Instagram | LinkedIn</p>
+
 </footer>
 
-<a href="https://wa.me/919999999999" class="whatsapp">💬</a>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
 
-/* CHANGE IMAGE */
-
-function changeImage(img){
-document.getElementById("mainImage").src = img.src;
+function showMessage(){
+alert("Welcome to MarketPro!");
 }
 
-/* LIGHTBOX */
-
-function openLightbox(){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightboxImg").src=
-document.getElementById("mainImage").src;
+function submitForm(event){
+event.preventDefault();
+alert("Your message has been sent!");
 }
-
-function closeLightbox(){
-document.getElementById("lightbox").style.display="none";
-}
-
-/* DARK MODE */
 
 function toggleMode(){
 document.body.classList.toggle("dark");
 }
 
-/* CONTACT */
+/* AUTO IMAGE SLIDER */
 
-function submitForm(e){
-e.preventDefault();
-alert("Message sent!");
+let images = [
+"https://picsum.photos/300/200",
+"https://picsum.photos/301/200",
+"https://picsum.photos/302/200",
+"https://picsum.photos/303/200"
+];
+
+let index = 0;
+
+function changeWorkImage(){
+
+index++;
+
+if(index >= images.length){
+index = 0;
 }
 
-/* SCROLL ANIMATION */
+document.getElementById("workImage").src = images[index];
 
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
 }
-});
-});
 
-document.querySelectorAll(".hidden").forEach(el=>{
-observer.observe(el);
-});
-
-/* PARTICLES */
-
-particlesJS("particles-js",{
-particles:{
-number:{value:60},
-color:{value:"#00eaff"},
-shape:{type:"circle"},
-opacity:{value:0.5},
-size:{value:3},
-line_linked:{
-enable:true,
-distance:150,
-color:"#00eaff",
-opacity:0.4,
-width:1
-},
-move:{enable:true,speed:3}
-}
-});
+setInterval(changeWorkImage,3000);
 
 </script>
 
 </body>
+
 </html>
