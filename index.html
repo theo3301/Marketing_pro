@@ -4,16 +4,33 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MarketPro Agency</title>
 
 <style>
+
+/* GLOBAL */
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family:Arial;
 margin:0;
 background:#f4f4f4;
 text-align:center;
+transition:0.3s;
+}
+
+/* PARTICLES BACKGROUND */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* HEADER */
@@ -22,10 +39,59 @@ header{
 background:#111;
 color:white;
 padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
 }
 
 .logo{
 width:60px;
+}
+
+/* DARK MODE SWITCH */
+
+.switch{
+position:relative;
+display:inline-block;
+width:50px;
+height:24px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#ccc;
+border-radius:34px;
+transition:0.4s;
+}
+
+.slider:before{
+position:absolute;
+content:"";
+height:18px;
+width:18px;
+left:3px;
+bottom:3px;
+background:white;
+border-radius:50%;
+transition:0.4s;
+}
+
+input:checked + .slider{
+background:#2196F3;
+}
+
+input:checked + .slider:before{
+transform:translateX(26px);
 }
 
 /* NAVIGATION */
@@ -48,10 +114,10 @@ font-size:18px;
 }
 
 nav a:hover{
-color:yellow;
+color:#00eaff;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
 background:linear-gradient(120deg,#2193b0,#6dd5ed);
@@ -63,19 +129,23 @@ padding:80px 20px;
 font-size:40px;
 }
 
-/* BUTTON */
+/* GLOW BUTTON */
 
-button{
+.glow-btn{
 padding:12px 25px;
-background:black;
-color:white;
+background:#00eaff;
 border:none;
+color:black;
+border-radius:30px;
 cursor:pointer;
-font-size:16px;
+font-weight:bold;
+transition:0.3s;
 }
 
-button:hover{
-background:#444;
+.glow-btn:hover{
+box-shadow:0 0 20px #00eaff,
+0 0 40px #00eaff;
+transform:scale(1.05);
 }
 
 /* SERVICES */
@@ -103,23 +173,26 @@ width:50px;
 }
 
 .card:hover{
-transform:scale(1.05);
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transform:translateY(-10px);
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* PORTFOLIO */
 
 .gallery{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 margin-top:30px;
 }
 
 .gallery img{
-width:300px;
+width:220px;
 border-radius:10px;
-transition:0.5s;
 }
 
-/* TESTIMONIALS */
+/* REVIEWS */
 
 .review{
 background:white;
@@ -129,7 +202,7 @@ width:300px;
 border-radius:10px;
 }
 
-/* CONTACT FORM */
+/* CONTACT */
 
 form{
 display:flex;
@@ -155,8 +228,57 @@ margin-top:30px;
 /* DARK MODE */
 
 .dark{
-background:#111;
+background:#121212;
 color:white;
+}
+
+.dark header{
+background:#000;
+}
+
+.dark nav{
+background:#000;
+}
+
+.dark .card{
+background:#1e1e1e;
+color:white;
+}
+
+.dark .review{
+background:#1e1e1e;
+}
+
+.dark footer{
+background:#000;
+}
+
+/* SCROLL ANIMATION */
+
+.hidden{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:24px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
 }
 
 /* RESPONSIVE */
@@ -180,6 +302,11 @@ nav{
 flex-direction:column;
 }
 
+.gallery{
+flex-direction:column;
+align-items:center;
+}
+
 }
 
 </style>
@@ -188,16 +315,20 @@ flex-direction:column;
 
 <body>
 
+<div id="particles-js"></div>
+
 <header>
 
 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
 
 <h1>MarketPro Agency</h1>
 
-<button onclick="toggleMode()">Dark Mode</button>
+<label class="switch">
+<input type="checkbox" onchange="toggleMode()">
+<span class="slider"></span>
+</label>
 
 </header>
-
 
 <nav>
 
@@ -209,25 +340,23 @@ flex-direction:column;
 
 </nav>
 
-
-<section id="home" class="hero">
+<section id="home" class="hero hidden">
 
 <h2>Grow Your Business Online</h2>
 
 <p>We build modern websites and digital marketing solutions.</p>
 
-<button onclick="showMessage()">Start Now</button>
+<button class="glow-btn" onclick="showMessage()">Start Now</button>
 
 </section>
 
-
-<section id="services">
+<section id="services" class="hidden">
 
 <h2>Our Services</h2>
 
 <div class="services">
 
-<a href="web-development.html" class="card">
+<a href="web-development.html" class="card hidden">
 
 <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
 
@@ -237,8 +366,7 @@ flex-direction:column;
 
 </a>
 
-
-<a href="graphic-design.html" class="card">
+<a href="graphic-design.html" class="card hidden">
 
 <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
 
@@ -248,8 +376,7 @@ flex-direction:column;
 
 </a>
 
-
-<a href="seo-marketing.html" class="card">
+<a href="seo-marketing.html" class="card hidden">
 
 <img src="https://cdn-icons-png.flaticon.com/512/1006/1006555.png">
 
@@ -263,59 +390,51 @@ flex-direction:column;
 
 </section>
 
-
-<section id="portfolio">
+<section id="portfolio" class="hidden">
 
 <h2>Our Work</h2>
 
 <div class="gallery">
 
-<img id="workImage" src="https://picsum.photos/300/200">
+<img src="https://picsum.photos/300/200">
+<img src="https://picsum.photos/301/200">
+<img src="https://picsum.photos/302/200">
 
 </div>
 
 </section>
 
-
-<section id="reviews">
+<section id="reviews" class="hidden">
 
 <h2>Client Reviews</h2>
 
 <div class="review">
-
 <p>"Amazing website service!"</p>
 <b>- Client A</b>
-
 </div>
 
 <div class="review">
-
 <p>"Highly recommended marketing team."</p>
 <b>- Client B</b>
-
 </div>
 
 </section>
 
-
-<section id="contact">
+<section id="contact" class="hidden">
 
 <h2>Contact Us</h2>
 
 <form onsubmit="submitForm(event)">
 
 <input type="text" placeholder="Your Name" required>
-
 <input type="email" placeholder="Your Email" required>
-
 <textarea placeholder="Your Message"></textarea>
 
-<button type="submit">Send Message</button>
+<button class="glow-btn" type="submit">Send Message</button>
 
 </form>
 
 </section>
-
 
 <footer>
 
@@ -325,49 +444,69 @@ flex-direction:column;
 
 </footer>
 
+<a href="https://wa.me/919999999999" class="whatsapp">💬</a>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
+
+/* MESSAGE */
 
 function showMessage(){
 alert("Welcome to MarketPro!");
 }
+
+/* CONTACT FORM */
 
 function submitForm(event){
 event.preventDefault();
 alert("Your message has been sent!");
 }
 
+/* DARK MODE */
+
 function toggleMode(){
 document.body.classList.toggle("dark");
 }
 
-/* AUTO IMAGE SLIDER */
+/* SCROLL ANIMATION */
 
-let images = [
-"https://picsum.photos/300/200",
-"https://picsum.photos/301/200",
-"https://picsum.photos/302/200",
-"https://picsum.photos/303/200"
-];
-
-let index = 0;
-
-function changeWorkImage(){
-
-index++;
-
-if(index >= images.length){
-index = 0;
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
 }
+});
+});
 
-document.getElementById("workImage").src = images[index];
+document.querySelectorAll(".hidden").forEach(el=>{
+observer.observe(el);
+});
 
+/* PARTICLES */
+
+particlesJS("particles-js",{
+particles:{
+number:{value:60},
+color:{value:"#00eaff"},
+shape:{type:"circle"},
+opacity:{value:0.5},
+size:{value:3},
+line_linked:{
+enable:true,
+distance:150,
+color:"#00eaff",
+opacity:0.4,
+width:1
+},
+move:{
+enable:true,
+speed:3
 }
-
-setInterval(changeWorkImage,3000);
+}
+});
 
 </script>
 
 </body>
-
 </html>
