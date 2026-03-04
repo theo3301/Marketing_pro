@@ -283,15 +283,17 @@ text-decoration:none;
 box-shadow:0 0 10px rgba(0,0,0,0.3);
 }
 
-/* =========================
-   MOBILE VIEW
-========================= */
+/* MOBILE RESPONSIVE */
 
-@media screen and (max-width:600px){
+@media (max-width:768px){
 
 header{
 flex-direction:column;
 gap:10px;
+}
+
+.logo{
+width:50px;
 }
 
 nav{
@@ -302,7 +304,7 @@ align-items:center;
 nav a{
 display:block;
 width:100%;
-padding:12px;
+padding:10px 0;
 border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
@@ -311,7 +313,11 @@ padding:60px 15px;
 }
 
 .hero h2{
-font-size:24px;
+font-size:26px;
+}
+
+.hero p{
+font-size:16px;
 }
 
 .services{
@@ -321,6 +327,7 @@ align-items:center;
 
 .card{
 width:90%;
+max-width:320px;
 }
 
 .gallery{
@@ -330,50 +337,32 @@ align-items:center;
 
 .gallery img{
 width:90%;
+max-width:320px;
 }
 
 .review{
 width:90%;
+max-width:320px;
 }
 
 form{
 width:90%;
 }
 
+input, textarea{
+font-size:16px;
 }
 
-/* =========================
-   TABLET VIEW
-========================= */
-
-@media screen and (min-width:601px) and (max-width:1024px){
-
-.card{
-width:40%;
+footer{
+padding:25px 10px;
+font-size:14px;
 }
 
-.gallery img{
-width:45%;
-}
-
-}
-
-/* =========================
-   DESKTOP VIEW
-========================= */
-
-@media screen and (min-width:1025px){
-
-.services{
-flex-direction:row;
-}
-
-.card{
-width:220px;
-}
-
-.gallery img{
-width:220px;
+.whatsapp{
+bottom:15px;
+right:15px;
+font-size:22px;
+padding:12px;
 }
 
 }
