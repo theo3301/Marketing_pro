@@ -8,6 +8,8 @@
 
 <style>
 
+/* GLOBAL */
+
 html{
 scroll-behavior:smooth;
 }
@@ -18,6 +20,17 @@ margin:0;
 background:#f4f4f4;
 text-align:center;
 transition:0.3s;
+}
+
+/* PARTICLES BACKGROUND */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
 }
 
 /* HEADER */
@@ -101,7 +114,7 @@ font-size:18px;
 }
 
 nav a:hover{
-color:yellow;
+color:#00eaff;
 }
 
 /* HERO */
@@ -116,19 +129,23 @@ padding:80px 20px;
 font-size:40px;
 }
 
-/* BUTTON */
+/* GLOW BUTTON */
 
-button{
+.glow-btn{
 padding:12px 25px;
-background:black;
-color:white;
+background:#00eaff;
 border:none;
+color:black;
+border-radius:30px;
 cursor:pointer;
-font-size:16px;
+font-weight:bold;
+transition:0.3s;
 }
 
-button:hover{
-background:#444;
+.glow-btn:hover{
+box-shadow:0 0 20px #00eaff,
+0 0 40px #00eaff;
+transform:scale(1.05);
 }
 
 /* SERVICES */
@@ -156,8 +173,8 @@ width:50px;
 }
 
 .card:hover{
-transform:scale(1.05);
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transform:translateY(-10px);
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* PORTFOLIO */
@@ -175,7 +192,7 @@ width:220px;
 border-radius:10px;
 }
 
-/* TESTIMONIALS */
+/* REVIEWS */
 
 .review{
 background:white;
@@ -185,7 +202,7 @@ width:300px;
 border-radius:10px;
 }
 
-/* CONTACT FORM */
+/* CONTACT */
 
 form{
 display:flex;
@@ -236,6 +253,34 @@ background:#1e1e1e;
 background:#000;
 }
 
+/* SCROLL ANIMATION */
+
+.hidden{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:24px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
 /* RESPONSIVE */
 
 @media (max-width:768px){
@@ -270,6 +315,8 @@ align-items:center;
 
 <body>
 
+<div id="particles-js"></div>
+
 <header>
 
 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
@@ -293,23 +340,23 @@ align-items:center;
 
 </nav>
 
-<section id="home" class="hero">
+<section id="home" class="hero hidden">
 
 <h2>Grow Your Business Online</h2>
 
 <p>We build modern websites and digital marketing solutions.</p>
 
-<button onclick="showMessage()">Start Now</button>
+<button class="glow-btn" onclick="showMessage()">Start Now</button>
 
 </section>
 
-<section id="services">
+<section id="services" class="hidden">
 
 <h2>Our Services</h2>
 
 <div class="services">
 
-<a href="web-development.html" class="card">
+<a href="web-development.html" class="card hidden">
 
 <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
 
@@ -319,8 +366,7 @@ align-items:center;
 
 </a>
 
-
-<a href="graphic-design.html" class="card">
+<a href="graphic-design.html" class="card hidden">
 
 <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
 
@@ -330,8 +376,7 @@ align-items:center;
 
 </a>
 
-
-<a href="seo-marketing.html" class="card">
+<a href="seo-marketing.html" class="card hidden">
 
 <img src="https://cdn-icons-png.flaticon.com/512/1006/1006555.png">
 
@@ -345,7 +390,7 @@ align-items:center;
 
 </section>
 
-<section id="portfolio">
+<section id="portfolio" class="hidden">
 
 <h2>Our Work</h2>
 
@@ -359,7 +404,7 @@ align-items:center;
 
 </section>
 
-<section id="reviews">
+<section id="reviews" class="hidden">
 
 <h2>Client Reviews</h2>
 
@@ -375,19 +420,17 @@ align-items:center;
 
 </section>
 
-<section id="contact">
+<section id="contact" class="hidden">
 
 <h2>Contact Us</h2>
 
 <form onsubmit="submitForm(event)">
 
 <input type="text" placeholder="Your Name" required>
-
 <input type="email" placeholder="Your Email" required>
-
 <textarea placeholder="Your Message"></textarea>
 
-<button type="submit">Send Message</button>
+<button class="glow-btn" type="submit">Send Message</button>
 
 </form>
 
@@ -396,27 +439,74 @@ align-items:center;
 <footer>
 
 <p>© 2026 MarketPro Agency</p>
+
 <p>Follow us: Facebook | Instagram | LinkedIn</p>
 
 </footer>
 
+<a href="https://wa.me/919999999999" class="whatsapp">💬</a>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <script>
+
+/* MESSAGE */
 
 function showMessage(){
 alert("Welcome to MarketPro!");
 }
+
+/* CONTACT FORM */
 
 function submitForm(event){
 event.preventDefault();
 alert("Your message has been sent!");
 }
 
+/* DARK MODE */
+
 function toggleMode(){
 document.body.classList.toggle("dark");
 }
 
+/* SCROLL ANIMATION */
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+observer.observe(el);
+});
+
+/* PARTICLES */
+
+particlesJS("particles-js",{
+particles:{
+number:{value:60},
+color:{value:"#00eaff"},
+shape:{type:"circle"},
+opacity:{value:0.5},
+size:{value:3},
+line_linked:{
+enable:true,
+distance:150,
+color:"#00eaff",
+opacity:0.4,
+width:1
+},
+move:{
+enable:true,
+speed:3
+}
+}
+});
+
 </script>
 
 </body>
-
 </html>
