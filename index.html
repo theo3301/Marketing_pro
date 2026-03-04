@@ -4,7 +4,6 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MarketPro Agency</title>
 
 <style>
@@ -82,7 +81,7 @@ input:checked + .slider:before{
 transform:translateX(26px);
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 
 nav{
 display:flex;
@@ -117,6 +116,21 @@ padding:80px 20px;
 font-size:40px;
 }
 
+/* BUTTON */
+
+button{
+padding:12px 25px;
+background:black;
+color:white;
+border:none;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#444;
+}
+
 /* SERVICES */
 
 .services{
@@ -132,9 +146,9 @@ background:white;
 padding:20px;
 width:220px;
 border-radius:10px;
+transition:0.3s;
 text-decoration:none;
 color:black;
-transition:0.3s;
 }
 
 .card img{
@@ -161,7 +175,7 @@ width:220px;
 border-radius:10px;
 }
 
-/* REVIEWS */
+/* TESTIMONIALS */
 
 .review{
 background:white;
@@ -171,7 +185,7 @@ width:300px;
 border-radius:10px;
 }
 
-/* CONTACT */
+/* CONTACT FORM */
 
 form{
 display:flex;
@@ -183,14 +197,6 @@ margin:auto;
 input, textarea{
 margin:10px 0;
 padding:10px;
-}
-
-button{
-padding:10px;
-background:black;
-color:white;
-border:none;
-cursor:pointer;
 }
 
 /* FOOTER */
@@ -224,11 +230,38 @@ color:white;
 
 .dark .review{
 background:#1e1e1e;
-color:white;
 }
 
 .dark footer{
 background:#000;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.hero h2{
+font-size:28px;
+}
+
+.services{
+flex-direction:column;
+align-items:center;
+}
+
+.card{
+width:80%;
+}
+
+nav{
+flex-direction:column;
+}
+
+.gallery{
+flex-direction:column;
+align-items:center;
+}
+
 }
 
 </style>
@@ -239,6 +272,8 @@ background:#000;
 
 <header>
 
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
+
 <h1>MarketPro Agency</h1>
 
 <label class="switch">
@@ -247,7 +282,6 @@ background:#000;
 </label>
 
 </header>
-
 
 <nav>
 
@@ -259,15 +293,15 @@ background:#000;
 
 </nav>
 
-
 <section id="home" class="hero">
 
 <h2>Grow Your Business Online</h2>
 
 <p>We build modern websites and digital marketing solutions.</p>
 
-</section>
+<button onclick="showMessage()">Start Now</button>
 
+</section>
 
 <section id="services">
 
@@ -281,7 +315,7 @@ background:#000;
 
 <h3>Web Development</h3>
 
-<p>Professional business websites</p>
+<p>Modern responsive websites for businesses.</p>
 
 </a>
 
@@ -292,7 +326,7 @@ background:#000;
 
 <h3>Graphic Design</h3>
 
-<p>Creative branding and design</p>
+<p>Creative visual branding and marketing graphics.</p>
 
 </a>
 
@@ -303,14 +337,13 @@ background:#000;
 
 <h3>SEO Marketing</h3>
 
-<p>Improve search rankings</p>
+<p>Improve search ranking and website traffic.</p>
 
 </a>
 
 </div>
 
 </section>
-
 
 <section id="portfolio">
 
@@ -326,27 +359,21 @@ background:#000;
 
 </section>
 
-
 <section id="reviews">
 
 <h2>Client Reviews</h2>
 
 <div class="review">
-
 <p>"Amazing website service!"</p>
 <b>- Client A</b>
-
 </div>
 
 <div class="review">
-
 <p>"Highly recommended marketing team."</p>
 <b>- Client B</b>
-
 </div>
 
 </section>
-
 
 <section id="contact">
 
@@ -366,17 +393,18 @@ background:#000;
 
 </section>
 
-
 <footer>
 
 <p>© 2026 MarketPro Agency</p>
-
 <p>Follow us: Facebook | Instagram | LinkedIn</p>
 
 </footer>
 
-
 <script>
+
+function showMessage(){
+alert("Welcome to MarketPro!");
+}
 
 function submitForm(event){
 event.preventDefault();
