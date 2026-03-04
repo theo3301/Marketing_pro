@@ -2,23 +2,231 @@
 <html>
 
 <head>
-<title>Graphic Design</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Graphic Design | MarketPro</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+background:linear-gradient(135deg,#141e30,#243b55);
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-size:18px;
+}
+
+nav a:hover{
+color:#00eaff;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:100px 20px;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.hero p{
+opacity:0.8;
+font-size:20px;
+}
+
+/* SERVICES GRID */
+
+.grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+padding:60px 20px;
+}
+
+.card{
+width:260px;
+padding:30px;
+border-radius:15px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,255,255,0.4);
+}
+
+.card h3{
+color:#00eaff;
+}
+
+/* PORTFOLIO */
+
+.portfolio{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:40px;
+}
+
+.portfolio img{
+width:250px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.portfolio img:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00eaff;
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+padding:80px 20px;
+background:black;
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:#00eaff;
+color:black;
+border-radius:25px;
+cursor:pointer;
+font-size:16px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#000;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:35px;
+}
+
+.grid{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+</style>
+
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;background:#f4f4f4;">
+<body>
 
-<h1>Graphic Design</h1>
+<nav>
 
-<p>Professional visual designs to build strong brand identity.</p>
+<h2>MarketPro</h2>
 
-<ul>
-<li>Logo design</li>
-<li>Social media graphics</li>
-<li>Business cards</li>
-<li>Marketing banners</li>
-</ul>
+<div>
 
-<a href="index.html">← Back to Home</a>
+<a href="index.html">Home</a>
+<a href="web-development.html">Web Development</a>
+<a href="seo-marketing.html">SEO</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<h1>Creative Graphic Design</h1>
+
+<p>We craft stunning visuals that elevate your brand identity.</p>
+
+</section>
+
+<section class="grid">
+
+<div class="card">
+<h3>Logo Design</h3>
+<p>Unique and memorable brand logos for businesses.</p>
+</div>
+
+<div class="card">
+<h3>Social Media Graphics</h3>
+<p>Eye-catching posts and ads for Instagram & Facebook.</p>
+</div>
+
+<div class="card">
+<h3>Brand Identity</h3>
+<p>Complete brand kits including colors and typography.</p>
+</div>
+
+<div class="card">
+<h3>Marketing Banners</h3>
+<p>Professional banners for digital campaigns.</p>
+</div>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center;">Our Design Work</h2>
+
+<div class="portfolio">
+
+<img src="https://picsum.photos/300/200">
+<img src="https://picsum.photos/301/200">
+<img src="https://picsum.photos/302/200">
+<img src="https://picsum.photos/303/200">
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Need Stunning Designs?</h2>
+
+<p>Let our creative team bring your vision to life.</p>
+
+<button onclick="location.href='index.html#contact'">
+Start Your Project
+</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 MarketPro Agency</p>
+
+</footer>
 
 </body>
 
