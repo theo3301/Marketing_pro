@@ -13,7 +13,7 @@ body{
 margin:0;
 font-family:Arial;
 color:white;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+background:linear-gradient(135deg,#141e30,#243b55);
 }
 
 /* NAVBAR */
@@ -24,21 +24,13 @@ justify-content:space-between;
 align-items:center;
 padding:20px 40px;
 background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
 }
 
 nav a{
 color:white;
 text-decoration:none;
 margin:0 15px;
-font-size:18px;
 }
-
-nav a:hover{
-color:#00eaff;
-}
-
-/* HERO */
 
 .hero{
 text-align:center;
@@ -49,90 +41,49 @@ padding:100px 20px;
 font-size:50px;
 }
 
-.hero p{
-opacity:0.8;
-font-size:20px;
-}
-
-/* FEATURES */
+/* CARDS */
 
 .features{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:30px;
-padding:60px 20px;
+padding:50px;
 }
 
 .card{
-width:260px;
-padding:30px;
-border-radius:15px;
 background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-transition:0.4s;
+padding:30px;
+width:250px;
+border-radius:10px;
+transition:0.3s;
 }
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 25px rgba(0,255,255,0.4);
+box-shadow:0 0 20px #00eaff;
 }
 
-.card h3{
-color:#00eaff;
-}
-
-/* ANALYTICS SECTION */
+/* STATS */
 
 .stats{
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
 gap:30px;
-padding:60px;
+padding:40px;
 }
 
 .stat{
 background:#111;
-padding:30px;
+padding:20px;
 border-radius:10px;
 border:1px solid #00eaff;
-width:200px;
 }
-
-.stat h2{
-color:#00eaff;
-}
-
-/* PROCESS */
-
-.process{
-padding:60px 20px;
-text-align:center;
-}
-
-.steps{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-margin-top:30px;
-}
-
-.step{
-background:rgba(0,0,0,0.5);
-padding:25px;
-border-radius:10px;
-width:220px;
-}
-
-/* CTA */
 
 .cta{
-background:black;
-padding:80px 20px;
 text-align:center;
+padding:80px;
+background:black;
 }
 
 button{
@@ -142,35 +93,12 @@ background:#00eaff;
 color:black;
 border-radius:25px;
 cursor:pointer;
-font-size:16px;
 }
-
-/* FOOTER */
 
 footer{
 text-align:center;
 padding:30px;
 background:#000;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:35px;
-}
-
-.features{
-flex-direction:column;
-align-items:center;
-}
-
-.stats{
-flex-direction:column;
-align-items:center;
-}
-
 }
 
 </style>
@@ -193,31 +121,29 @@ align-items:center;
 
 </nav>
 
-
 <section class="hero">
 
 <h1>SEO & Digital Marketing</h1>
 
-<p>Boost your online visibility and dominate search rankings.</p>
+<p>Boost your website traffic and dominate search engines.</p>
 
 </section>
-
 
 <section class="features">
 
 <div class="card">
 <h3>Keyword Research</h3>
-<p>Find the best keywords to rank your website.</p>
+<p>Find the best keywords to rank your business.</p>
 </div>
 
 <div class="card">
 <h3>On-Page SEO</h3>
-<p>Optimize content, structure and speed.</p>
+<p>Optimize website content and structure.</p>
 </div>
 
 <div class="card">
-<h3>Link Building</h3>
-<p>Improve domain authority with quality links.</p>
+<h3>Backlink Building</h3>
+<p>Increase domain authority with quality links.</p>
 </div>
 
 <div class="card">
@@ -226,7 +152,6 @@ align-items:center;
 </div>
 
 </section>
-
 
 <section class="stats">
 
@@ -247,50 +172,17 @@ align-items:center;
 
 </section>
 
-
-<section class="process">
-
-<h2>Our SEO Process</h2>
-
-<div class="steps">
-
-<div class="step">
-<h3>Audit</h3>
-<p>Analyze your website performance.</p>
-</div>
-
-<div class="step">
-<h3>Strategy</h3>
-<p>Create a powerful SEO plan.</p>
-</div>
-
-<div class="step">
-<h3>Optimization</h3>
-<p>Improve site structure and content.</p>
-</div>
-
-<div class="step">
-<h3>Growth</h3>
-<p>Track rankings and increase traffic.</p>
-</div>
-
-</div>
-
-</section>
-
-
 <section class="cta">
 
 <h2>Ready to Grow Your Website?</h2>
 
-<p>Let us help you dominate search engines.</p>
+<p>Let our SEO experts help your business grow.</p>
 
 <button onclick="location.href='index.html#contact'">
 Start SEO Campaign
 </button>
 
 </section>
-
 
 <footer>
 
