@@ -1,250 +1,315 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
 
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MarketPro Agency</title>
 
-<title>Digital Agency</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+/* GLOBAL */
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-background:#0b0b0b;
+font-family:'Orbitron',sans-serif;
+margin:0;
+background:#0f172a;
 color:white;
+text-align:center;
 overflow-x:hidden;
+transition:0.3s;
 }
 
-/* NAVBAR */
+/* PARTICLES */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-2;
+}
+
+/* HEADER */
+
+header{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.logo{
+width:60px;
+}
+
+/* DARK MODE SWITCH */
+
+.switch{
+position:relative;
+display:inline-block;
+width:50px;
+height:24px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#ccc;
+border-radius:34px;
+transition:0.4s;
+}
+
+.slider:before{
+position:absolute;
+content:"";
+height:18px;
+width:18px;
+left:3px;
+bottom:3px;
+background:white;
+border-radius:50%;
+transition:0.4s;
+}
+
+input:checked + .slider{
+background:#00eaff;
+}
+
+input:checked + .slider:before{
+transform:translateX(26px);
+}
+
+/* NAV */
 
 nav{
 display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-position:fixed;
-width:100%;
-top:0;
-background:rgba(0,0,0,0.6);
+justify-content:center;
+flex-wrap:wrap;
+background:rgba(0,0,0,0.7);
 backdrop-filter:blur(10px);
-z-index:1000;
+padding:10px;
+position:sticky;
+top:0;
 }
 
-nav h1{
-font-size:22px;
-letter-spacing:2px;
-}
-
-nav ul{
-display:flex;
-gap:30px;
-list-style:none;
-}
-
-nav ul li a{
-text-decoration:none;
+nav a{
 color:white;
-font-size:14px;
+margin:10px;
+text-decoration:none;
+font-size:18px;
 transition:0.3s;
 }
 
-nav ul li a:hover{
-color:#00ffe0;
+nav a:hover{
+color:#00eaff;
+text-shadow:0 0 10px #00eaff;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:0 20px;
-background:linear-gradient(120deg,#0b0b0b,#121212);
+padding:120px 20px;
+background:linear-gradient(270deg,#00eaff,#6dd5ed,#2193b0,#00eaff);
+background-size:800% 800%;
+animation:gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 .hero h2{
-font-size:50px;
-margin-bottom:15px;
+font-size:42px;
 }
 
-.hero p{
-max-width:600px;
-opacity:0.8;
-margin-bottom:30px;
-}
+/* BUTTON */
 
-.btn{
-padding:12px 30px;
-border:none;
-background:#00ffe0;
-color:#000;
-border-radius:30px;
-font-weight:600;
+.glow-btn{
+padding:14px 30px;
+border-radius:40px;
+border:2px solid #00eaff;
+background:transparent;
+color:#00eaff;
+font-weight:bold;
 cursor:pointer;
-transition:0.3s;
+transition:0.4s;
 }
 
-.btn:hover{
-transform:scale(1.05);
+.glow-btn:hover{
+background:#00eaff;
+color:black;
+box-shadow:
+0 0 20px #00eaff,
+0 0 40px #00eaff,
+0 0 60px #00eaff;
 }
 
 /* SERVICES */
 
-#services{
-padding:120px 8%;
-text-align:center;
-}
-
-#services h2{
-font-size:38px;
-margin-bottom:50px;
-}
-
 .services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:40px;
 }
 
 .card{
-background:#141414;
-padding:40px 30px;
-border-radius:12px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+padding:25px;
+width:240px;
+border-radius:15px;
 transition:0.4s;
-text-decoration:none;
 color:white;
+text-decoration:none;
 }
 
 .card img{
-width:60px;
-margin-bottom:20px;
-}
-
-.card h3{
-margin-bottom:10px;
-}
-
-.card p{
-font-size:14px;
-opacity:0.7;
+width:50px;
 }
 
 .card:hover{
-transform:translateY(-10px);
-background:#1a1a1a;
+transform:translateY(-10px) scale(1.05);
+box-shadow:
+0 0 20px #00eaff,
+0 0 40px rgba(0,234,255,0.6);
 }
 
-/* BUSINESS SECTION */
+/* PORTFOLIO */
 
-.business{
-padding:120px 8%;
-text-align:center;
-background:#111;  /* less contrast */
+.gallery{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
 }
 
-.business h2{
-font-size:40px;
-margin-bottom:15px;
+.gallery img{
+width:240px;
+border-radius:10px;
+transition:0.3s;
 }
 
-.business p{
-max-width:600px;
-margin:auto;
-opacity:0.7;
-margin-bottom:30px;
+.gallery img:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00eaff;
 }
 
-/* ABOUT */
+/* REVIEWS */
 
-.about{
-padding:120px 8%;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-}
-
-.about img{
-width:100%;
-border-radius:12px;
-}
-
-.about h2{
-font-size:38px;
-margin-bottom:20px;
-}
-
-.about p{
-opacity:0.8;
-line-height:1.6;
+.review{
+background:rgba(255,255,255,0.05);
+padding:20px;
+margin:20px auto;
+width:300px;
+border-radius:10px;
+backdrop-filter:blur(10px);
 }
 
 /* CONTACT */
 
-.contact{
-padding:120px 8%;
-text-align:center;
+form{
+display:flex;
+flex-direction:column;
+max-width:400px;
+margin:auto;
 }
 
-.contact h2{
-font-size:36px;
-margin-bottom:20px;
-}
-
-.contact p{
-opacity:0.7;
-margin-bottom:30px;
-}
-
-.contact input,
-.contact textarea{
-width:100%;
-max-width:500px;
-margin:10px auto;
-display:block;
+input, textarea{
+margin:10px 0;
 padding:12px;
-border:none;
 border-radius:6px;
-background:#1a1a1a;
-color:white;
-}
-
-.contact button{
-margin-top:10px;
+border:none;
 }
 
 /* FOOTER */
 
 footer{
-text-align:center;
-padding:40px;
-background:#0a0a0a;
-opacity:0.7;
+background:black;
+padding:30px;
+margin-top:40px;
 }
 
-/* ANIMATION */
+/* DARK MODE */
+
+.dark{
+background:#000;
+}
+
+/* SCROLL ANIMATION */
 
 .hidden{
 opacity:0;
 transform:translateY(40px);
-transition:all 1s;
+transition:1s;
 }
 
 .show{
 opacity:1;
 transform:translateY(0);
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:24px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h2{
+font-size:28px;
+}
+
+.services{
+flex-direction:column;
+align-items:center;
+}
+
+nav{
+flex-direction:column;
+}
+
+.gallery{
+flex-direction:column;
+align-items:center;
+}
+
 }
 
 </style>
@@ -253,37 +318,40 @@ transform:translateY(0);
 
 <body>
 
-<!-- NAVBAR -->
+<div id="particles-js"></div>
+
+<header>
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
+
+<h1>MarketPro Agency</h1>
+
+<label class="switch">
+<input type="checkbox" onchange="toggleMode()">
+<span class="slider"></span>
+</label>
+
+</header>
 
 <nav>
 
-<h1>Digital Agency</h1>
-
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
-<!-- HERO -->
+<section id="home" class="hero hidden">
 
-<section class="hero">
+<h2 id="typing"></h2>
 
-<h2>Build Your Digital Future</h2>
+<p>We build modern websites and digital marketing solutions.</p>
 
-<p>
-We create powerful websites, branding and marketing strategies
-to grow your business online.
-</p>
-
-<button class="btn">Start Project</button>
+<button class="glow-btn" onclick="showMessage()">Start Now</button>
 
 </section>
-
-<!-- SERVICES -->
 
 <section id="services" class="hidden">
 
@@ -294,101 +362,154 @@ to grow your business online.
 <a href="web-development.html" class="card hidden">
 <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
 <h3>Web Development</h3>
-<p>Modern responsive websites built with latest technologies.</p>
+<p>Modern responsive websites.</p>
 </a>
 
 <a href="graphic-design.html" class="card hidden">
 <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
 <h3>Graphic Design</h3>
-<p>Creative branding, posters, logos and social media design.</p>
+<p>Creative branding designs.</p>
 </a>
 
 <a href="seo-marketing.html" class="card hidden">
 <img src="https://cdn-icons-png.flaticon.com/512/1006/1006555.png">
 <h3>SEO Marketing</h3>
-<p>Boost your website ranking and grow your online traffic.</p>
+<p>Grow your website traffic.</p>
 </a>
 
 </div>
 
 </section>
 
-<!-- BUSINESS SECTION -->
+<section id="portfolio" class="hidden">
 
-<section class="business hidden">
+<h2>Our Work</h2>
 
-<h2>Grow Your Business Online</h2>
+<div class="gallery">
 
-<p>
-Our digital solutions help businesses reach more customers,
-increase engagement and scale faster in the online world.
-</p>
-
-<button class="btn">Get Started</button>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about" class="about hidden">
-
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-
-<div>
-
-<h2>About Our Agency</h2>
-
-<p>
-We are a creative digital agency focused on building powerful
-online experiences. From modern websites to creative design
-and marketing strategies, we help brands grow in the digital era.
-</p>
+<img src="https://picsum.photos/300/200">
+<img src="https://picsum.photos/301/200">
+<img src="https://picsum.photos/302/200">
 
 </div>
 
 </section>
 
-<!-- CONTACT -->
+<section id="reviews" class="hidden">
 
-<section id="contact" class="contact hidden">
+<h2>Client Reviews</h2>
 
-<h2>Contact Us</h2>
+<div class="review">
+<p>"Amazing website service!"</p>
+<b>- Client A</b>
+</div>
 
-<p>Have a project in mind? Let's work together.</p>
-
-<input type="text" placeholder="Your Name">
-
-<input type="email" placeholder="Your Email">
-
-<textarea rows="5" placeholder="Your Message"></textarea>
-
-<button class="btn">Send Message</button>
+<div class="review">
+<p>"Highly recommended marketing team."</p>
+<b>- Client B</b>
+</div>
 
 </section>
 
-<!-- FOOTER -->
+<section id="contact" class="hidden">
+
+<h2>Contact Us</h2>
+
+<form onsubmit="submitForm(event)">
+
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Message"></textarea>
+
+<button class="glow-btn" type="submit">Send Message</button>
+
+</form>
+
+</section>
 
 <footer>
 
-<p>© 2026 Digital Agency. All Rights Reserved.</p>
+<p>© 2026 MarketPro Agency</p>
+<p>Follow us: Facebook | Instagram | LinkedIn</p>
 
 </footer>
 
-<!-- JS ANIMATION -->
+<a href="https://wa.me/917051610035" class="whatsapp">💬</a>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
 
-const observer = new IntersectionObserver(entries=>{
+/* TYPING TEXT */
+
+const text="Grow Your Business Online";
+let i=0;
+
+function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,70);
+}
+}
+
+typing();
+
+/* BUTTON MESSAGE */
+
+function showMessage(){
+alert("Welcome to MarketPro Agency!");
+}
+
+/* CONTACT */
+
+function submitForm(e){
+e.preventDefault();
+alert("Your message has been sent!");
+}
+
+/* DARK MODE */
+
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+/* SCROLL ANIMATION */
+
+const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
-entry.target.classList.add("show")
+entry.target.classList.add("show");
 }
-})
-})
+});
+});
 
 document.querySelectorAll(".hidden").forEach(el=>{
-observer.observe(el)
-})
+observer.observe(el);
+});
+
+/* PARTICLES */
+
+particlesJS("particles-js",{
+particles:{
+number:{value:60},
+color:{value:"#00eaff"},
+shape:{type:"circle"},
+opacity:{value:0.5},
+size:{value:3},
+line_linked:{
+enable:true,
+distance:150,
+color:"#00eaff",
+opacity:0.4,
+width:1
+},
+move:{
+enable:true,
+speed:3
+}
+}
+});
 
 </script>
 
