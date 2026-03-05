@@ -37,20 +37,6 @@ left:0;
 z-index:-2;
 }
 
-/* CURSOR GLOW */
-
-.cursor{
-position:fixed;
-width:20px;
-height:20px;
-border-radius:50%;
-background:#00eaff;
-pointer-events:none;
-box-shadow:0 0 20px #00eaff,0 0 40px #00eaff;
-transform:translate(-50%,-50%);
-z-index:9999;
-}
-
 /* HEADER */
 
 header{
@@ -333,7 +319,6 @@ align-items:center;
 <body>
 
 <div id="particles-js"></div>
-<div class="cursor"></div>
 
 <header>
 
@@ -488,15 +473,6 @@ alert("Your message has been sent!");
 function toggleMode(){
 document.body.classList.toggle("dark");
 }
-
-/* CURSOR EFFECT */
-
-const cursor=document.querySelector(".cursor");
-
-document.addEventListener("mousemove",e=>{
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
-});
 
 /* SCROLL ANIMATION */
 
