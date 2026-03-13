@@ -5,7 +5,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banday Cloth House</title>
+<title>MarketPro Agency</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
@@ -169,7 +169,7 @@ box-shadow:
 0 0 60px #00eaff;
 }
 
-/* COLLECTION */
+/* SERVICES */
 
 .services{
 display:flex;
@@ -187,18 +187,22 @@ padding:25px;
 width:240px;
 border-radius:15px;
 transition:0.4s;
+color:white;
+text-decoration:none;
 }
 
 .card img{
-width:80px;
+width:50px;
 }
 
 .card:hover{
 transform:translateY(-10px) scale(1.05);
-box-shadow:0 0 20px #00eaff;
+box-shadow:
+0 0 20px #00eaff,
+0 0 40px rgba(0,234,255,0.6);
 }
 
-/* GALLERY */
+/* PORTFOLIO */
 
 .gallery{
 display:flex;
@@ -227,6 +231,7 @@ padding:20px;
 margin:20px auto;
 width:300px;
 border-radius:10px;
+backdrop-filter:blur(10px);
 }
 
 /* CONTACT */
@@ -255,6 +260,21 @@ padding:30px;
 margin-top:40px;
 }
 
+/* DARK MODE */
+
+.dark{
+background:#000;
+}
+
+.dark header,
+.dark nav{
+background:#111;
+}
+
+.dark .card{
+background:rgba(255,255,255,0.08);
+}
+
 /* SCROLL ANIMATION */
 
 .hidden{
@@ -280,6 +300,31 @@ font-size:24px;
 padding:15px;
 border-radius:50%;
 text-decoration:none;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h2{
+font-size:28px;
+}
+
+.services{
+flex-direction:column;
+align-items:center;
+}
+
+nav{
+flex-direction:column;
+}
+
+.gallery{
+flex-direction:column;
+align-items:center;
+}
+
 }
 
 </style>
@@ -292,9 +337,9 @@ text-decoration:none;
 
 <header>
 
-<img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" class="logo">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
 
-<h1>Banday Cloth House</h1>
+<h1>MarketPro Agency</h1>
 
 <label class="switch">
 <input type="checkbox" onchange="toggleMode()">
@@ -306,8 +351,8 @@ text-decoration:none;
 <nav>
 
 <a href="#home">Home</a>
-<a href="#collections">Collections</a>
-<a href="#gallery">Gallery</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 
@@ -317,43 +362,43 @@ text-decoration:none;
 
 <h2 id="typing"></h2>
 
-<p>Premium quality clothing for every occasion.</p>
+<p>We build modern websites and digital marketing solutions.</p>
 
-<button class="glow-btn">Shop Collection</button>
+<button class="glow-btn" onclick="showMessage()">Start Now</button>
 
 </section>
 
-<section id="collections" class="hidden">
+<section id="services" class="hidden">
 
-<h2>Our Collections</h2>
+<h2>Our Services</h2>
 
 <div class="services">
 
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
-<h3>Men Collection</h3>
-<p>Stylish outfits for modern men.</p>
-</div>
+<a href="#" class="card hidden">
+<img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
+<h3>Web Development</h3>
+<p>Modern responsive websites.</p>
+</a>
 
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
-<h3>Women Collection</h3>
-<p>Elegant fashion for every woman.</p>
-</div>
+<a href="#" class="card hidden">
+<img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
+<h3>Graphic Design</h3>
+<p>Creative branding designs.</p>
+</a>
 
-<div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/892/892458.png">
-<h3>Kids Wear</h3>
-<p>Comfortable and trendy kids clothing.</p>
-</div>
+<a href="#" class="card hidden">
+<img src="https://cdn-icons-png.flaticon.com/512/1006/1006555.png">
+<h3>SEO Marketing</h3>
+<p>Grow your website traffic.</p>
+</a>
 
 </div>
 
 </section>
 
-<section id="gallery" class="hidden">
+<section id="portfolio" class="hidden">
 
-<h2>Fashion Gallery</h2>
+<h2>Our Work</h2>
 
 <div class="gallery">
 
@@ -367,16 +412,16 @@ text-decoration:none;
 
 <section id="reviews" class="hidden">
 
-<h2>Customer Reviews</h2>
+<h2>Client Reviews</h2>
 
 <div class="review">
-<p>"Best clothing quality in town!"</p>
-<b>- Customer A</b>
+<p>"Amazing website service!"</p>
+<b>- Client A</b>
 </div>
 
 <div class="review">
-<p>"Amazing designs and affordable prices."</p>
-<b>- Customer B</b>
+<p>"Highly recommended marketing team."</p>
+<b>- Client B</b>
 </div>
 
 </section>
@@ -399,11 +444,11 @@ text-decoration:none;
 
 <footer>
 
-<p>© 2026 Banday Cloth House</p>
+<p>© 2026 MarketPro Agency</p>
 <p>Follow us:
 <i class="fab fa-facebook"></i>
 <i class="fab fa-instagram"></i>
-<i class="fab fa-whatsapp"></i>
+<i class="fab fa-linkedin"></i>
 </p>
 
 </footer>
@@ -416,7 +461,9 @@ text-decoration:none;
 
 <script>
 
-const text="Welcome to Banday Cloth House";
+/* TYPING TEXT */
+
+const text="Grow Your Business Online";
 let i=0;
 
 function typing(){
@@ -429,14 +476,26 @@ setTimeout(typing,70);
 
 typing();
 
+/* BUTTON MESSAGE */
+
+function showMessage(){
+alert("Welcome to MarketPro Agency!");
+}
+
+/* CONTACT */
+
 function submitForm(e){
 e.preventDefault();
-alert("Message sent successfully!");
+alert("Your message has been sent!");
 }
+
+/* DARK MODE */
 
 function toggleMode(){
 document.body.classList.toggle("dark");
 }
+
+/* SCROLL ANIMATION */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
@@ -450,6 +509,8 @@ document.querySelectorAll(".hidden").forEach(el=>{
 observer.observe(el);
 });
 
+/* PARTICLES */
+
 particlesJS("particles-js",{
 particles:{
 number:{value:60},
@@ -457,7 +518,17 @@ color:{value:"#00eaff"},
 shape:{type:"circle"},
 opacity:{value:0.5},
 size:{value:3},
-move:{enable:true,speed:3}
+line_linked:{
+enable:true,
+distance:150,
+color:"#00eaff",
+opacity:0.4,
+width:1
+},
+move:{
+enable:true,
+speed:3
+}
 }
 });
 
